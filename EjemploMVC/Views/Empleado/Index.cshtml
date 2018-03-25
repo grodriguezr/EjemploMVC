@@ -1,0 +1,60 @@
+﻿@*@model EjemploMVC.ViewModels.EmpleadoViewModel*@
+@model EjemploMVC.ViewModels.ListaEmpleadoViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>MyView</title>
+</head>
+<body>
+    <div> 
+        @{ 
+            //EjemploMVC.Models.Empleado emp = (EjemploMVC.Models.Empleado)ViewData["EMpleado"];
+            //EjemploMVC.Models.Empleado emp = (EjemploMVC.Models.Empleado)ViewBag.Empleado;
+        }
+        @*<b>Detalles de empleado</b><br />
+        Nombre de empleado: @Model.NombreEmpleado <br />
+        <span style="background-color:@Model.SalarioColor">
+            Salario: @Model.Salario <br />
+        </span>*@
+
+        @*Hola @Model.NombreUsuario*@
+        <hr />
+        <table>
+            <tr>
+                <th>
+                    Nombre
+                </th>
+                <th>
+                    Salario
+                </th>
+            </tr>
+            @foreach (var item in Model.Empleados)
+            {
+                <tr>
+                    <td>
+                        @item.NombreEmpleado
+                    </td>
+                    <td style="background-color:@item.SalarioColor">
+                        @item.Salario
+                    </td>
+                </tr>
+            }
+
+        </table>
+        <a href="Empleado/AddNew">Nuevo</a>
+
+
+
+        
+
+
+    </div>
+</body>
+</html>
+

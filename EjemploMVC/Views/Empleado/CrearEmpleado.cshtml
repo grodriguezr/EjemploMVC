@@ -1,0 +1,84 @@
+﻿@model EjemploMVC.ViewModels.CrearEmpleadoViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CrearEmpleado</title>
+    <script>
+        function ResetForm() {
+            document.getElementById('TxtNombre').value = "";
+            document.getElementById('TxtApellido').value = "";
+            document.getElementById('TxtSalario').value = "";
+
+        }
+    </script>
+</head>
+<body>
+    <div> 
+        <form action="/Empleado/GuardarEmpleado" method="post">
+            <table>
+                <tr>
+                    <td>
+                        Nombre:
+                    </td>
+                    <td>
+                        <input type="text" id="TxtNombre" name="FirstName" value="@Model.FirstName" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="rigth">
+                        @Html.ValidationMessage("FirstName")
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Apellido:
+                    </td>
+                    <td>
+                        <input type="text" id="TxtApellido" name="LastName" value=@Model.LastName"" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="right">
+                        @Html.ValidationMessage("LastName")
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Salario:
+                    </td>
+                    <td>
+                        <input type="text" id="TxtSalario" name="Salario" value="@Model.Salario" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="right">
+                        @Html.ValidationMessage("Salario")
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" name="BtnSubmit" value="Guardar" />
+                        <input type="button" name="BtnReset" value="Reset" onclick="ResetForm();" />
+                        <input type="submit" name="BtnSubmit" value="Cancelar" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>
+
+
+@*Nombre: <input type="text" id="TxtNombre" name="FirstName" value="" /><br />
+    Apellido: <input type="text" id="TxtApellido" name="LastName" value="" /><br />
+    Salario: <input type="text" id="TxtSalario" name="Salario" value="" /><br />
+    <input type="submit" name="BtnSubmit" value="Guardar" />
+    <input type="button" name="BtnReset" value="Reset" onclick="ResetForm();" />
+    <input type="submit" name="BtnSubmit" value="Cancelar" />*@
+

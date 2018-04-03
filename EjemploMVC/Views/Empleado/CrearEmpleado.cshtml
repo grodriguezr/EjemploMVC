@@ -17,6 +17,7 @@
 
         }
     </script>
+    <script src="~/Scripts/Validaciones.js"></script>
 </head>
 <body>
     <div> 
@@ -40,7 +41,7 @@
                         Apellido:
                     </td>
                     <td>
-                        <input type="text" id="TxtApellido" name="LastName" value=@Model.LastName"" />
+                        <input type="text" id="TxtApellido" name="LastName" value="@Model.LastName" />
                     </td>
                 </tr>
                 <tr>
@@ -63,7 +64,7 @@
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <input type="submit" name="BtnSubmit" value="Guardar" />
+                        <input type="submit" name="BtnSubmit" value="Guardar" onclick="return EsValido();" />
                         <input type="button" name="BtnReset" value="Reset" onclick="ResetForm();" />
                         <input type="submit" name="BtnSubmit" value="Cancelar" />
                     </td>

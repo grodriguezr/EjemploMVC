@@ -38,6 +38,7 @@ namespace EjemploMVC.Controllers
             return c;
         }
 
+        [Authorize]
         public ActionResult Index()
         {
             //Empleado e = new Empleado()

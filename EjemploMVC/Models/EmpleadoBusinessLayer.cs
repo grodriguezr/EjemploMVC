@@ -42,5 +42,16 @@ namespace EjemploMVC.Models
             salesDal.SaveChanges();
             return e;
         }
+        public bool UsuarioEsValido(DetallesUsuario d)
+        {
+            if (d.NombreUsuario == "Admin" && d.Contrasena == "Admin")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

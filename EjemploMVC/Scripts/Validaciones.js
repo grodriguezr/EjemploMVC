@@ -68,9 +68,9 @@ function EsValido() {
 
     if (MensajeFinalDeError != "Errores:") {
         alert(MensajeFinalDeError);
-        return false;
+        return false;//No se hará la petición al servidor
     }
     else {
-        return true;
+        return true;//Sí se hará la petición al servidor
     }
 }

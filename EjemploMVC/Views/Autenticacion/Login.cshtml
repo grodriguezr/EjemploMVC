@@ -1,0 +1,28 @@
+﻿@model EjemploMVC.Models.DetallesUsuario
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+</head>
+<body>
+    <div> 
+        @Html.ValidationMessage("CredentialError", new { style="color:red;"})
+        @using (Html.BeginForm("Logear", "Autenticacion", FormMethod.Post))
+        {
+            @Html.LabelFor(p => p.NombreUsuario)
+            @Html.TextBoxFor(p => p.NombreUsuario)
+            <br />
+            @Html.LabelFor(p => p.Contrasena)
+            @Html.PasswordFor(p => p.Contrasena)
+            <br />
+            <input type="submit" name="BtnSubmit" value="Login"/>
+        }
+    </div>
+</body>
+</html>

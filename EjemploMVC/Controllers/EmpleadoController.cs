@@ -63,6 +63,7 @@ namespace EjemploMVC.Controllers
                 empleadoViewModel.NombreEmpleado = item.FirstName + " " + item.LastName;
                 empleadoViewModel.Salario = item.Salario.ToString("C");
                 empleadoViewModel.SalarioColor = item.Salario > 15000 ? "yellow" : "green";
+                empleadosViewModel.NombreUsuario = User.Identity.Name;
                 listaEmpleadoViewModel.Add(empleadoViewModel);
             }
             empleadosViewModel.Empleados = listaEmpleadoViewModel;

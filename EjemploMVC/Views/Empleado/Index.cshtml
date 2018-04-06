@@ -12,6 +12,10 @@
     <title>MyView</title>
 </head>
 <body>
+    <div style="text-align:right">
+        Hola, @Model.NombreUsuario
+        <a href="/Autenticacion/Logout">Cerrar sesión</a>
+    </div>
     <div> 
         @{ 
             //EjemploMVC.Models.Empleado emp = (EjemploMVC.Models.Empleado)ViewData["EMpleado"];
@@ -48,12 +52,6 @@
 
         </table>
         <a href="Empleado/AddNew">Nuevo</a>
-
-
-
-        
-
-
     </div>
 </body>
 </html>

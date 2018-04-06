@@ -9,6 +9,10 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Login</title>
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+
 </head>
 <body>
     <div> 
@@ -17,6 +21,7 @@
         {
             @Html.LabelFor(p => p.NombreUsuario)
             @Html.TextBoxFor(p => p.NombreUsuario)
+            @Html.ValidationMessageFor(p => p.NombreUsuario)
             <br />
             @Html.LabelFor(p => p.Contrasena)
             @Html.PasswordFor(p => p.Contrasena)

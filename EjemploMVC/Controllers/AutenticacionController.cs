@@ -8,6 +8,7 @@ using System.Web.Security;
 
 namespace EjemploMVC.Controllers
 {
+    [AllowAnonymous]
     public class AutenticacionController : Controller
     {
         public ActionResult Login()
@@ -18,17 +19,30 @@ namespace EjemploMVC.Controllers
         [HttpPost]
         public ActionResult Logear(DetallesUsuario d)
         {
-            EmpleadoBusinessLayer ebl = new EmpleadoBusinessLayer();
-            if (ebl.UsuarioEsValido(d))
+            if (ModelState.IsValid)
             {
-                FormsAuthentication.SetAuthCookie(d.NombreUsuario, false);
-                return RedirectToAction("Index", "Empleado");
+                EmpleadoBusinessLayer ebl = new EmpleadoBusinessLayer();
+                if (ebl.UsuarioEsValido(d))
+                {
+                    FormsAuthentication.SetAuthCookie(d.NombreUsuario, false);
+                    return RedirectToAction("Index", "Empleado");
+                }
+                else
+                {
+                    ModelState.AddModelError("CredentialError", "Nombre o contraseña inválido");
+                    return View("Login");
+                }
             }
             else
             {
-                ModelState.AddModelError("CredentialError", "Nombre o contraseña inválido");
                 return View("Login");
             }
+        }
+
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Login");
         }
     }
 }

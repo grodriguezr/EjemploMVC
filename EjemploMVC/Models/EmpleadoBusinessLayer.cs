@@ -42,15 +42,30 @@ namespace EjemploMVC.Models
             salesDal.SaveChanges();
             return e;
         }
-        public bool UsuarioEsValido(DetallesUsuario d)
+        //public bool UsuarioEsValido(DetallesUsuario d)
+        //{
+        //    if (d.NombreUsuario == "Admin" && d.Contrasena == "Admin")
+        //    {
+        //        return true;
+        //    }
+        //    else
+        //    {
+        //        return false;
+        //    }
+        //}
+        public EstadoUsuario GetUserValidity(DetallesUsuario d)
         {
-            if (d.NombreUsuario == "Admin" && d.Contrasena == "Admin")
+            if(d.NombreUsuario == "Admin" && d.Contrasena == "Admin")
             {
-                return true;
+                return EstadoUsuario.AdminAutenticado;
+            }
+            else if(d.NombreUsuario == "Gustavo" && d.Contrasena == "Gustavo")
+            {
+                return EstadoUsuario.UsuarioAutenticado;
             }
             else
             {
-                return false;
+                return EstadoUsuario.UsuariuoNoAutenticado;
             }
         }
     }

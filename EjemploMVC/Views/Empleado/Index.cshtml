@@ -18,8 +18,8 @@
     </div>
     <div> 
         @{ 
-            //EjemploMVC.Models.Empleado emp = (EjemploMVC.Models.Empleado)ViewData["EMpleado"];
-            //EjemploMVC.Models.Empleado emp = (EjemploMVC.Models.Empleado)ViewBag.Empleado;
+//EjemploMVC.Models.Empleado emp = (EjemploMVC.Models.Empleado)ViewData["EMpleado"];
+//EjemploMVC.Models.Empleado emp = (EjemploMVC.Models.Empleado)ViewBag.Empleado;
         }
         @*<b>Detalles de empleado</b><br />
         Nombre de empleado: @Model.NombreEmpleado <br />
@@ -29,7 +29,11 @@
 
         @*Hola @Model.NombreUsuario*@
         <hr />
-        <table>
+        @*<a href="Empleado/AddNew">Nuevo</a>*@
+        @{ 
+            Html.RenderAction("GetLinkAgregarNuevo");
+        }
+        <table border="1">
             <tr>
                 <th>
                     Nombre
@@ -51,7 +55,12 @@
             }
 
         </table>
-        <a href="Empleado/AddNew">Nuevo</a>
+        @{ 
+            //Html.RenderPartial("Footer", Model.footerData);
+            MvcHtmlString result = Html.Partial("Footer", Model.footerData);
+            string finalResult = result.ToHtmlString().Replace("2018", "200000");
+        }
+        @MvcHtmlString.Create(finalResult)
     </div>
 </body>
 </html>

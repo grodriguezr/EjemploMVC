@@ -9,5 +9,6 @@ namespace EjemploMVC.ViewModels
     {
         public List<EmpleadoViewModel> Empleados { get; set; }
         public string NombreUsuario { get; set; }
+        public FooterViewModel footerData { get; set; }
     }
 }

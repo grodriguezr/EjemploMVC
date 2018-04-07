@@ -22,16 +22,29 @@ namespace EjemploMVC.Controllers
             if (ModelState.IsValid)
             {
                 EmpleadoBusinessLayer ebl = new EmpleadoBusinessLayer();
-                if (ebl.UsuarioEsValido(d))
+                EstadoUsuario estado = ebl.GetUserValidity(d);
+                bool esAdmin = false;
+                if(estado == EstadoUsuario.AdminAutenticado)
                 {
-                    FormsAuthentication.SetAuthCookie(d.NombreUsuario, false);
-                    return RedirectToAction("Index", "Empleado");
+                    esAdmin = true;
                 }
+                else if(estado == EstadoUsuario.UsuarioAutenticado)
+                {
+                    esAdmin = false;
+                }
+                //if (ebl.UsuarioEsValido(d))
+                //{
+                //    FormsAuthentication.SetAuthCookie(d.NombreUsuario, false);
+                //    return RedirectToAction("Index", "Empleado");
+                //}
                 else
                 {
                     ModelState.AddModelError("CredentialError", "Nombre o contraseña inválido");
                     return View("Login");
                 }
+                FormsAuthentication.SetAuthCookie(d.NombreUsuario, false);
+                Session["EsAdmin"] = esAdmin;
+                return RedirectToAction("Index", "Empleado");
             }
             else
             {

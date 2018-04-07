@@ -67,8 +67,13 @@ namespace EjemploMVC.Controllers
                 listaEmpleadoViewModel.Add(empleadoViewModel);
             }
             empleadosViewModel.Empleados = listaEmpleadoViewModel;
+
+            //se agrega información del footer
+            empleadosViewModel.footerData = new FooterViewModel();
+            empleadosViewModel.footerData.NombreEmpresa = "MVC Paso a paso";
+            empleadosViewModel.footerData.Anio = DateTime.Now.Year.ToString();
             //empleadosViewModel.NombreUsuario = "Admin";
-            
+
             return View("Index", empleadosViewModel);
         }
 
@@ -101,6 +106,19 @@ namespace EjemploMVC.Controllers
                     return RedirectToAction("Index");
             }
             return new EmptyResult();
+        }
+
+        public ActionResult GetLinkAgregarNuevo()
+        {
+            if (Convert.ToBoolean(Session["EsAdmin"]))
+            {
+                //return Partial View("LinkAgregarNuevo");
+                return PartialView("LinkAgregarNuevo");
+            }
+            else
+            {
+                return new EmptyResult();
+            }
         }
     }
 }

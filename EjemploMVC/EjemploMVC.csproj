@@ -138,10 +138,12 @@
     <Compile Include="Models\DetallesUsuario.cs" />
     <Compile Include="Models\Empleado.cs" />
     <Compile Include="Models\EmpleadoBusinessLayer.cs" />
+    <Compile Include="Models\EstadoUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Validaciones\ValidacionNombre.cs" />
     <Compile Include="ViewModels\CrearEmpleadoViewModel.cs" />
     <Compile Include="ViewModels\EmpleadoViewModel.cs" />
+    <Compile Include="ViewModels\FooterViewModel.cs" />
     <Compile Include="ViewModels\ListaEmpleadoViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -185,6 +187,8 @@
     <Content Include="Views\Empleado\Index.cshtml" />
     <Content Include="Views\Empleado\CrearEmpleado.cshtml" />
     <Content Include="Views\Autenticacion\Login.cshtml" />
+    <Content Include="Views\Shared\Footer.cshtml" />
+    <Content Include="Views\Shared\LinkAgregarNuevo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
